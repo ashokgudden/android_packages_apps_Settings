@@ -39,4 +39,7 @@
     <!-- Extra Info -->
     <string name="lsextrainfo">Extra information</string>
     <string name="lsextrainfo_summary">Display extra info for cpu, display, etc</string>
+
+    <!-- Bluetooth accept all files -->
+    <string name="bluetooth_accept_all_files">Accept all file types</string>
 </resources>
