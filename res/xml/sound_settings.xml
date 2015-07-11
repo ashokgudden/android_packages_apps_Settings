@@ -62,6 +62,12 @@
                 android:icon="@drawable/ring_notif_increasing"
                 android:dependency="increasing_ring" />
 
+        <!-- Volume Steps -->
+        <PreferenceScreen
+                android:key="volume_steps"
+                android:title="@string/volume_steps_title"
+                android:fragment="com.android.settings.validus.VolumeSteps" />
+
         <!-- Interruptions -->
         <com.android.settingslib.RestrictedPreference
                 android:key="zen_mode"
