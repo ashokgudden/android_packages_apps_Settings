@@ -37,11 +37,13 @@ import android.os.PersistableBundle;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.os.storage.StorageManager;
+import android.os.SystemProperties;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.service.trust.TrustAgentService;
 import android.support.annotation.VisibleForTesting;
 import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceGroup;
@@ -117,6 +119,10 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final int UNUNIFY_LOCK_CONFIRM_DEVICE_REQUEST = 130;
     private static final String TAG_UNIFICATION_DIALOG = "unification_dialog";
 
+    private static final String KEY_DENY_NEW_USB = "deny_new_usb";
+    private static final String DENY_NEW_USB_PROP = "security.deny_new_usb";
+    private static final String DENY_NEW_USB_PERSIST_PROP = "persist.security.deny_new_usb";
+
     // Misc Settings
     private static final String KEY_SIM_LOCK = "sim_lock_settings";
     private static final String KEY_SHOW_PASSWORD = "show_password";
@@ -138,7 +144,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = {
-            KEY_SHOW_PASSWORD, KEY_UNIFICATION, KEY_VISIBLE_PATTERN_PROFILE
+            KEY_SHOW_PASSWORD, KEY_UNIFICATION, KEY_VISIBLE_PATTERN_PROFILE, KEY_DENY_NEW_USB
     };
 
     // Only allow one trust agent on the platform.
@@ -167,6 +173,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private Intent mTrustAgentClickIntent;
 
     private int mProfileChallengeUserId;
+
+    private ListPreference mDenyNewUsb;
 
     private String mCurrentDevicePassword;
     private String mCurrentProfilePassword;
@@ -317,6 +325,16 @@ public class SecuritySettings extends SettingsPreferenceFragment
         }
 
         mIsAdmin = mUm.isAdminUser();
+
+        if (mIsAdmin) {
+            mDenyNewUsb = (ListPreference) findPreference(KEY_DENY_NEW_USB);
+        } else {
+            PreferenceGroup securityCategory = (PreferenceGroup)
+                    root.findPreference(KEY_SECURITY_CATEGORY);
+            if (securityCategory != null) {
+                securityCategory.removePreference(securityCategory.findPreference(KEY_DENY_NEW_USB));
+            }
+        }
 
         // Fingerprint and trust agents
         int numberOfTrustAgent = 0;
@@ -622,6 +640,10 @@ public class SecuritySettings extends SettingsPreferenceFragment
         }
 
         mLocationcontroller.updateSummary();
+
+        if (mDenyNewUsb != null) {
+            mDenyNewUsb.setValue(SystemProperties.get(DENY_NEW_USB_PERSIST_PROP, "disabled"));
+        }
     }
 
     private void updateUnificationPreference() {
@@ -808,6 +830,13 @@ public class SecuritySettings extends SettingsPreferenceFragment
             Settings.System.putInt(getContentResolver(), Settings.System.TEXT_SHOW_PASSWORD,
                     ((Boolean) value) ? 1 : 0);
             lockPatternUtils.setVisiblePasswordEnabled((Boolean) value, MY_USER_ID);
+        } else if (KEY_DENY_NEW_USB.equals(key)) {
+            String mode = (String) value;
+            SystemProperties.set(DENY_NEW_USB_PERSIST_PROP, mode);
+            // The dynamic mode defaults to the disabled state
+            if (mode.equals("dynamic")) {
+                SystemProperties.set(DENY_NEW_USB_PROP, "0");
+            }
         }
         return result;
     }
