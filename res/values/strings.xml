@@ -8682,4 +8682,8 @@
 
     <string name="deny_new_usb_title">USB accessories</string>
     <string name="deny_new_usb_summary">Control support for USB peripherals such as input (mice, keyboards, joysticks) and storage devices.</string>
+
+    <!-- background clipboard access -->
+    <string name="background_clipboard_title">Allow background clipboard access</string>
+    <string name="background_clipboard_summary">Enable access to the clipboard by applications in the background.</string>
 </resources>

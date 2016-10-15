@@ -142,9 +142,13 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_ENTERPRISE_PRIVACY = "enterprise_privacy";
     private static final String KEY_MANAGE_DEVICE_ADMIN = "manage_device_admin";
 
+    private static final String KEY_BACKGROUND_CLIPBOARD = "background_clipboard";
+    private static final String BACKGROUND_CLIPBOARD_PERSIST_PROP = "persist.security.bg_clipboard";
+
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = {
-            KEY_SHOW_PASSWORD, KEY_UNIFICATION, KEY_VISIBLE_PATTERN_PROFILE, KEY_DENY_NEW_USB
+            KEY_SHOW_PASSWORD, KEY_UNIFICATION, KEY_VISIBLE_PATTERN_PROFILE, KEY_DENY_NEW_USB,
+            KEY_BACKGROUND_CLIPBOARD
     };
 
     // Only allow one trust agent on the platform.
@@ -175,6 +179,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private int mProfileChallengeUserId;
 
     private ListPreference mDenyNewUsb;
+    private SwitchPreference mBackgroundClipboard;
 
     private String mCurrentDevicePassword;
     private String mCurrentProfilePassword;
@@ -379,6 +384,12 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
         // Advanced Security features
         initTrustAgentPreference(root, numberOfTrustAgent);
+
+        if (mIsAdmin) {
+            mBackgroundClipboard = (SwitchPreference) findPreference(KEY_BACKGROUND_CLIPBOARD);
+        } else {
+            root.removePreference(root.findPreference(KEY_BACKGROUND_CLIPBOARD));
+        }
 
         // The above preferences come and go based on security state, so we need to update
         // the index. This call is expected to be fairly cheap, but we may want to do something
@@ -644,6 +655,10 @@ public class SecuritySettings extends SettingsPreferenceFragment
         if (mDenyNewUsb != null) {
             mDenyNewUsb.setValue(SystemProperties.get(DENY_NEW_USB_PERSIST_PROP, "disabled"));
         }
+
+        if (mBackgroundClipboard != null) {
+            mBackgroundClipboard.setChecked(SystemProperties.getBoolean(BACKGROUND_CLIPBOARD_PERSIST_PROP, false));
+        }
     }
 
     private void updateUnificationPreference() {
@@ -837,6 +852,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
             if (mode.equals("dynamic")) {
                 SystemProperties.set(DENY_NEW_USB_PROP, "0");
             }
+        } else if (KEY_BACKGROUND_CLIPBOARD.equals(key)) {
+            SystemProperties.set(BACKGROUND_CLIPBOARD_PERSIST_PROP, (Boolean) value ? "1" : "0");
         }
         return result;
     }
