@@ -60,6 +60,15 @@
         <Preference android:key="device_feedback"
                 android:title="@string/device_feedback" />
 
+        <!-- Extra Info -->
+        <PreferenceScreen android:key="extrainfo"
+                android:title="@string/lsextrainfo"
+                android:summary="@string/lsextrainfo_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.rr.extrainfo.MainActivity" />
+        </PreferenceScreen>
+
         <!-- Device hardware model -->
         <Preference
                 android:key="device_model"

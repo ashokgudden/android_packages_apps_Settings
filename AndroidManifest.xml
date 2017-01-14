@@ -931,6 +931,14 @@
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
                 android:value="true" />
         </activity>
+        
+        <activity android:name="PartitionInfo" android:label="@string/partition_info_title">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+            </intent-filter>
+        </activity>
 
         <activity android:name="SettingsLicenseActivity"
                 android:label="@string/settings_license_activity_title"
@@ -2654,6 +2662,14 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
                 android:value="true" />
+        </activity>
+
+        <!-- Extra info -->
+        <activity android:name="com.android.settings.rr.extrainfo.MainActivity"
+                  android:theme="@android:style/Theme.Material.Light.Dialog.NoActionBar.MinWidth">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
         </activity>
 
         <!-- Confirmation dialog for enabling notification access from CompanionDeviceManager -->
