@@ -51,4 +51,6 @@
 
     <string name="delight_settings_activity">Advanced</string>
     <string name="delight_settings_activity_summary">Additional ROM settings</string>
+
+    <string name="background_processes_settings_title">Background processes</string>
 </resources>
