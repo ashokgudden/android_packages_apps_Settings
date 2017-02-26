@@ -183,4 +183,8 @@ public class Settings extends SettingsActivity {
 
     // Abc Additions.
     public static class DevRunningServicesActivity extends SettingsActivity { /* empty */ }
+
+    // omni additions start
+    public static class OmniJawsSettingsActivity extends SettingsActivity { /* empty */ }
+
 }
