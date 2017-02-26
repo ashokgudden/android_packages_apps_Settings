@@ -131,6 +131,7 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 
 import com.delight.settings.DelightSettings;
 import com.delight.settings.fragments.HeadsUpSettings;
+import com.delight.settings.fragments.OmniJawsSettings;
 
 public class SettingsGateway {
 
@@ -253,6 +254,9 @@ public class SettingsGateway {
             DelightSettings.class.getName(),
             RunningServices.class.getName(),
             HeadsUpSettings.class.getName(),
+
+            // omni additions start
+            OmniJawsSettings.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
