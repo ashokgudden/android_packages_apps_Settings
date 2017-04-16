@@ -472,6 +472,13 @@
         <Preference
             android:key="reset_shortcut_manager_throttling"
             android:title="@string/reset_shortcut_manager_throttling" />
+
+        <!-- Allow Fake Signature.  -->
+        <com.android.settings.delight.Preferences.SecureSettingSwitchPreference
+            android:key="allow_signature_fake"
+            android:title="@string/allow_signature_fake"
+            android:summary="@string/allow_signature_fake_summary"
+            android:defaultValue="false" />
      </PreferenceCategory>
 
     <PreferenceCategory
