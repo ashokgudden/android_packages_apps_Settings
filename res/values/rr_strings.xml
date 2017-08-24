@@ -102,4 +102,7 @@
     <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string>
 
     <string name="battery_color_mod_title">Battery-saver custom color</string>
+
+    <!-- Delight version in About phone -->
+    <string name="rom_version_title">Delight version</string>
 </resources>
