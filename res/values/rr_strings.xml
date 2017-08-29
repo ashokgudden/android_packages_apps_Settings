@@ -46,4 +46,6 @@
     <!-- Disable Signature Verification -->
     <string name="disable_signature_title">Disable Signature Verification</string>
     <string name="disable_signature_summary">Allows you to install apps with different signature</string>
+
+    <string name="show_dev_already_enabled">No Need, Development settings are enabled by default.</string>
 </resources>
