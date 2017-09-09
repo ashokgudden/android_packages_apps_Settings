@@ -96,4 +96,8 @@
     <string name="columns_menu">Columns layout</string>
     <string name="hide_summary_menu">Hide summary</string>
     <string name="hide_suggestions_menu">Hide suggestions</string>
+
+    <string name="dashboard_conditions_title">Dashboard conditions</string>
+    <string name="summary_dashboard_conditions_enabled">Dashboard conditions are enabled</string>
+    <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string>
 </resources>
