@@ -3166,6 +3166,8 @@
                        android:resource="@string/delight_settings_activity_summary"/>
         </activity>
 
+        <activity android:name="com.delight.settings.fragments.HAFRAppListActivity" />
+
         <!-- Heads up settings activity. -->
         <activity android:name="Settings$HeadsUpSettingsActivity"
                 android:label="@string/heads_up_notifications"
