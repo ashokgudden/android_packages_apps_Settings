@@ -184,13 +184,8 @@ public class PowerUsageSummary extends PowerUsageBase {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean(KEY_SHOW_ALL_APPS, mShowAllApps);
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
         outState.putInt(ARG_BATTERY_LEVEL, mBatteryLevel);
+        outState.putBoolean(KEY_SHOW_ALL_APPS, mShowAllApps);
     }
 
     @Override
