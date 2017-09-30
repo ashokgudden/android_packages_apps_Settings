@@ -128,7 +128,9 @@ import com.android.settings.wifi.WifiAPITest;
 import com.android.settings.wifi.WifiInfo;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
+
 import com.delight.settings.DelightSettings;
+import com.delight.settings.fragments.HeadsUpSettings;
 
 public class SettingsGateway {
 
@@ -250,6 +252,7 @@ public class SettingsGateway {
             LockscreenDashboardFragment.class.getName(),
             DelightSettings.class.getName(),
             RunningServices.class.getName(),
+            HeadsUpSettings.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
