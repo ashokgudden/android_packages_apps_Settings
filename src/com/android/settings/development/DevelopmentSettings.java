@@ -262,8 +262,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private boolean mHaveDebugSettings;
     private boolean mDontPokeProperties;
 
-    private boolean mOtaDisabledOnce = false;
-
     private SwitchPreference mEnableAdb;
     private SwitchPreference mAdbOverNetwork;
     private Preference mClearAdbKeys;
@@ -564,11 +562,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             So, to be sure the automatic update function is really kept disabled, we are forcing it to disabled
             (it means we are enabling the "disable automatic ota" feature) at least once in the onCreate method.*/
         final ContentResolver cr = getActivity().getContentResolver();
-        if (!mOtaDisabledOnce && 
-                (Settings.Global.getInt(cr, Settings.Global.OTA_DISABLE_AUTOMATIC_UPDATE, 0) != 1)) {
-            Settings.Global.putInt(cr, Settings.Global.OTA_DISABLE_AUTOMATIC_UPDATE, 1);
-            mOtaDisabledOnce = true;
-        }
 
         if (Settings.Secure.getInt(cr,
                 Settings.Secure.BUGREPORT_IN_POWER_MENU, 0) == 1) {
