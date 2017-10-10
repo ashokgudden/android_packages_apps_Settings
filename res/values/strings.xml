@@ -8679,11 +8679,15 @@
     <!-- The divider symbol between different parts of the notification header including spaces. not translatable [CHAR LIMIT=3] -->
     <string name="notification_header_divider_symbol_with_spaces" translatable="false">" • "</string>
 
-
     <string name="deny_new_usb_title">USB accessories</string>
     <string name="deny_new_usb_summary">Control support for USB peripherals such as input (mice, keyboards, joysticks) and storage devices.</string>
 
     <!-- background clipboard access -->
     <string name="background_clipboard_title">Allow background clipboard access</string>
     <string name="background_clipboard_summary">Enable access to the clipboard by applications in the background.</string>
+
+    <!-- Switch label to show operator name in the status bar [CHAR LIMIT=60] -->
+    <string name="show_operator_name_title">Network name</string>
+    <!-- Switch summary to show operator name in the status bar [CHAR LIMIT=NONE] -->
+    <string name="show_operator_name_summary">Display network name in status bar</string>
 </resources>
