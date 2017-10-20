@@ -53,4 +53,8 @@
     <string name="delight_settings_activity_summary">Additional ROM settings</string>
 
     <string name="background_processes_settings_title">Background processes</string>
+
+    <!-- Encryption and credential -->
+    <string name="custom_encryption_and_credential_settings_summary_on">Device is encrypted</string>
+    <string name="custom_encryption_and_credential_settings_summary_off">Device is decrypted</string>
 </resources>
