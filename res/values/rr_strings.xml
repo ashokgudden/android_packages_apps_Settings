@@ -48,4 +48,7 @@
     <string name="disable_signature_summary">Allows you to install apps with different signature</string>
 
     <string name="show_dev_already_enabled">No Need, Development settings are enabled by default.</string>
+
+    <string name="delight_settings_activity">Advanced</string>
+    <string name="delight_settings_activity_summary">Additional ROM settings</string>
 </resources>
