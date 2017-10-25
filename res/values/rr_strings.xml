@@ -81,4 +81,7 @@
 
     <!-- Dummy string needed to hide SuperSU from launcher, no need to translate -->
     <string name="supersu_title">SuperSU</string>
+
+    <string name="adb_over_network_disable_on_disconnect_title">Disable ADB over network on disconnect</string>
+    <string name="adb_over_network_disable_on_disconnect_summary">ADB over network will be disabled when disconnecting from Wi-Fi</string>
 </resources>
