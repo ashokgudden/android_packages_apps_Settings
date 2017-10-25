@@ -116,6 +116,13 @@
             android:summary="@string/adb_over_network_summary"
             android:dependency="enable_adb" />
 
+        <com.android.settings.delight.Preferences.SystemSettingSwitchPreference
+            android:key="disable_adb_network_on_disconnect"
+            android:title="@string/adb_over_network_disable_on_disconnect_title"
+            android:summary="@string/adb_over_network_disable_on_disconnect_summary"
+            android:dependency="adb_over_network"
+            android:defaultValue="true" />
+
         <Preference android:key="clear_adb_keys"
                 android:title="@string/clear_adb_keys" />
 
