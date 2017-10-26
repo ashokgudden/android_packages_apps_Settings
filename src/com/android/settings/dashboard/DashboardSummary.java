@@ -57,14 +57,14 @@ public class DashboardSummary extends InstrumentedFragment
         FocusRecyclerView.FocusListener {
     public static final boolean DEBUG = false;
     private static final boolean DEBUG_TIMING = false;
-    //private static final int MAX_WAIT_MILLIS = 700;
+    private static final int MAX_WAIT_MILLIS = 700;
     private static final String TAG = "DashboardSummary";
 
     private static final String SUGGESTIONS = "suggestions";
 
     private static final String EXTRA_SCROLL_POSITION = "scroll_position";
 
-    //private final Handler mHandler = new Handler();
+    private final Handler mHandler = new Handler();
 
     private FocusRecyclerView mDashboard;
     private DashboardAdapter mAdapter;
@@ -238,11 +238,11 @@ public class DashboardSummary extends InstrumentedFragment
 
     @VisibleForTesting
     void rebuildUI() {
-        //new SuggestionLoader().execute();
+        new SuggestionLoader().execute();
         // Set categories on their own if loading suggestions takes too long.
-        //mHandler.postDelayed(() -> {
+        mHandler.postDelayed(() -> {
             updateCategoryAndSuggestion(null /* tiles */);
-        //}, MAX_WAIT_MILLIS);
+        }, MAX_WAIT_MILLIS);
     }
 
     @Override
@@ -285,7 +285,7 @@ public class DashboardSummary extends InstrumentedFragment
         updateSettings();
     }
 
-    /*private class SuggestionLoader extends AsyncTask<Void, Void, List<Tile>> {
+    private class SuggestionLoader extends AsyncTask<Void, Void, List<Tile>> {
         @Override
         protected List<Tile> doInBackground(Void... params) {
             final Context context = getContext();
@@ -318,7 +318,7 @@ public class DashboardSummary extends InstrumentedFragment
             mHandler.removeCallbacksAndMessages(null);
             updateCategoryAndSuggestion(tiles);
         }
-    }*/
+    }
 
     @VisibleForTesting
     void updateCategoryAndSuggestion(List<Tile> suggestions) {
@@ -332,10 +332,10 @@ public class DashboardSummary extends InstrumentedFragment
         List<DashboardCategory> categories = new ArrayList<>();
         categories.add(mDashboardFeatureProvider.getTilesForCategory(
                 CategoryKey.CATEGORY_HOMEPAGE));
-        /*if (suggestions != null) {
+        if (suggestions != null) {
             mAdapter.setCategoriesAndSuggestions(categories, suggestions);
-        } else {*/
+        } else {
             mAdapter.setCategory(categories);
-        //}
+        }
     }
 }
