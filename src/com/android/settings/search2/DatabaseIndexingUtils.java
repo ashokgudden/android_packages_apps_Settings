@@ -82,6 +82,10 @@ public class DatabaseIndexingUtils {
         // SEARCH_INDEX_DATA_PROVIDER field
         final Indexable.SearchIndexProvider provider = getSearchIndexProvider(clazz);
 
+        if (provider == null ) {
+            return null;
+        }
+
         List<PreferenceController> controllers =
                 provider.getPreferenceControllers(context);
 
