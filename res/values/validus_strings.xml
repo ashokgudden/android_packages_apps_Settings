@@ -135,4 +135,6 @@
     <string name="volume_steps_7">7</string>
     <string name="volume_steps_5">5</string>
 
+    <!-- Phone info shortcut -->
+    <string name="device_info_title">Phone info</string>
 </resources>
