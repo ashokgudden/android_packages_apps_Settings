@@ -51,7 +51,7 @@
                 android:title="@string/vibrate_when_ringing_title" />
 
         <!-- Increasing ring -->
-        <com.gzr.wolvesden.preference.SystemSettingSwitchPreference
+        <com.delight.settings.preferences.SystemSettingSwitchPreference
                 android:key="increasing_ring"
                 android:title="@string/increasing_ring_volume_option_title"
                 android:defaultValue="false" />
