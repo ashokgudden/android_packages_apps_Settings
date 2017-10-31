@@ -30,7 +30,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
-import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -112,7 +111,6 @@ import com.android.settingslib.net.ChartDataLoader;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -1333,45 +1331,12 @@ public class InstalledAppDetails extends AppInfoBase
      * @deprecated app info pages should use {@link AppHeaderController} to show the app header.
      */
     public static void setupAppSnippet(View appSnippet, CharSequence label, Drawable icon,
-            CharSequence versionName, String packageName) {
+            CharSequence versionName) {
         LayoutInflater.from(appSnippet.getContext()).inflate(R.layout.widget_text_views,
                 (ViewGroup) appSnippet.findViewById(android.R.id.widget_frame));
 
         ImageView iconView = (ImageView) appSnippet.findViewById(R.id.app_detail_icon);
         iconView.setImageDrawable(icon);
-
-        // Clicking on application icon opens application.
-        final String finalPackageName = String.valueOf(packageName);
-        iconView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setPackage(finalPackageName);
-
-                PackageManager pm = v.getContext().getPackageManager();
-                List<ResolveInfo> resolveInfos = pm.queryIntentActivities(intent, 0);
-                Collections.sort(resolveInfos, new ResolveInfo.DisplayNameComparator(pm));
-
-                if(resolveInfos.size() > 0) {
-                    ResolveInfo launchable = resolveInfos.get(0);
-                    ActivityInfo activity = launchable.activityInfo;
-                    ComponentName name = new ComponentName(activity.applicationInfo.packageName,
-                            activity.name);
-                    Intent i=new Intent(Intent.ACTION_MAIN);
-
-                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
-                            Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-                    i.setComponent(name);
-
-                    if (i == null) {
-                        return;
-                    }
-
-                    v.getContext().startActivity(i);
-                }
-            }
-        });
-
         // Set application name.
         TextView labelView = (TextView) appSnippet.findViewById(R.id.app_detail_title);
         labelView.setText(label);
