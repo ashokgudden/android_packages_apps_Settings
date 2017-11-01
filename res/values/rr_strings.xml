@@ -100,4 +100,6 @@
     <string name="dashboard_conditions_title">Dashboard conditions</string>
     <string name="summary_dashboard_conditions_enabled">Dashboard conditions are enabled</string>
     <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string>
+
+    <string name="battery_color_mod_title">Battery-saver custom color</string>
 </resources>
