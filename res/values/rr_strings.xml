@@ -105,4 +105,8 @@
 
     <!-- Delight version in About phone -->
     <string name="rom_version_title">Delight version</string>
+
+    <!-- setting: show CPU info-->
+    <string name="show_cpu_info">Show CPU info</string>
+    <string name="show_cpu_info_summary">Screen overlay showing current CPU info</string>
 </resources>

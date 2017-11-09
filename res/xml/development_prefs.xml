@@ -456,10 +456,11 @@
             android:key="reset_shortcut_manager_throttling"
             android:title="@string/reset_shortcut_manager_throttling" />
 
-        <com.delight.settings.preferences.GlobalSettingSwitchPreference
-            android:key="show_cpu_overlay"
-            android:title="@string/show_cpu_title"
-            android:summary="@string/show_cpu_summary"
+        <!-- Show CPU Info overlay -->
+        <SwitchPreference
+            android:key="show_cpu_info"
+            android:title="@string/show_cpu_info"
+            android:summary="@string/show_cpu_info_summary"
             android:defaultValue="false" />
 
         <!-- Allow Fake Signature.  -->
