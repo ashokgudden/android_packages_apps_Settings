@@ -132,6 +132,10 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.delight.settings.DelightSettings;
 import com.delight.settings.fragments.HeadsUpSettings;
 import com.delight.settings.fragments.OmniJawsSettings;
+import com.delight.settings.fragments.FlingSettings;
+import com.delight.settings.fragments.NavbarSettings;
+import com.delight.settings.fragments.PulseSettings;
+import com.delight.settings.fragments.SmartbarSettings;
 
 public class SettingsGateway {
 
@@ -257,6 +261,12 @@ public class SettingsGateway {
 
             // omni additions start
             OmniJawsSettings.class.getName(),
+
+            // DUI
+            NavbarSettings.class.getName(),
+            FlingSettings.class.getName(),
+            SmartbarSettings.class.getName(),
+            PulseSettings.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -297,5 +307,9 @@ public class SettingsGateway {
             Settings.EnterprisePrivacySettingsActivity.class.getName(),
             Settings.DelightSettingsActivity.class.getName(),
             Settings.DevRunningServicesActivity.class.getName(),
+            Settings.NavigationSettingsActivity.class.getName(),
+            Settings.FlingSettingsActivity.class.getName(),
+            Settings.SmartbarSettingsActivity.class.getName(),
+            Settings.PulseSettingsActivity.class.getName()
     };
 }
