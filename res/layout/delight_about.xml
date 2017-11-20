@@ -21,7 +21,7 @@
 
         <ImageView
             android:layout_width="625dp"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:src="@drawable/delight_about"
             android:scaleType="centerInside"
             android:adjustViewBounds="true" />
