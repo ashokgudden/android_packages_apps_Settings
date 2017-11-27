@@ -31,10 +31,6 @@
             android:title="@string/show_password"
             android:summary="@string/show_password_summary"/>
 
-    </PreferenceCategory>
-
-    <PreferenceCategory>
-
         <Preference android:key="manage_device_admin"
                 android:title="@string/manage_device_admin"
                 android:persistent="false"
