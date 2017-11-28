@@ -133,7 +133,7 @@ import com.delight.settings.DelightSettings;
 import com.delight.settings.fragments.HeadsUpSettings;
 import com.delight.settings.fragments.OmniJawsSettings;
 import com.delight.settings.fragments.FlingSettings;
-import com.delight.settings.fragments.NavbarSettings;
+import com.delight.settings.NavbarSettings;
 import com.delight.settings.fragments.PulseSettings;
 import com.delight.settings.fragments.SmartbarSettings;
 

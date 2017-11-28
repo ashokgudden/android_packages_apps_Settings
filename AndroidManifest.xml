@@ -3205,7 +3205,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.delight.settings.fragments.NavbarSettings" />
+                android:value="com.delight.settings.NavbarSettings" />
         </activity>
 
         <!-- Smartbar settings -->
