@@ -116,4 +116,6 @@
     <string name="alert_on_charged_level_80">"80%"</string>
     <string name="alert_on_charged_level_90">"90%"</string>
     <string name="alert_on_charged_level_99">"99%"</string>
+
+    <string name="volume_steps_bluetooth_sco_title">Volume steps: Bluetooth call</string>
 </resources>
