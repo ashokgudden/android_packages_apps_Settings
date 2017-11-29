@@ -101,10 +101,10 @@
         android:title="@string/ambient_display_pickup_title"
         android:fragment="com.android.settings.gestures.PickupGestureSettings" />
 
-    <SwitchPreference
+    <!-- SwitchPreference
         android:key="doze"
         android:title="@string/doze_title"
-        android:summary="@string/doze_summary" />
+        android:summary="@string/doze_summary" / >
 
     <lineageos.preference.RemotePreference
         android:key="doze_device_settings"
@@ -113,7 +113,7 @@
         lineage:replacesKey="doze">
         <intent
             android:action="org.lineageos.settings.device.DOZE_SETTINGS" />
-    </lineageos.preference.RemotePreference>
+    </lineageos.preference.RemotePreference -->
 
     <SwitchPreference
         android:key="tap_to_wake"
